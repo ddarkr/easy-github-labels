@@ -1,6 +1,6 @@
 # easy-github-labels
 
-> My fantastic Nuxt.js project
+> Github 저장소의 Label을 간단하게 다른 저장소로 복사할 수 있습니다.
 
 ## Build Setup
 
@@ -18,5 +18,3 @@ $ yarn start
 # generate static project
 $ yarn generate
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
