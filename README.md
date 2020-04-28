@@ -1,5 +1,14 @@
 # easy-github-labels
 
+<p align="center">
+  <a href="https://vuejs.org">
+    <img src="http://img.shields.io/badge/Vue.js-4FC08D?logo=Vue.js&logoColor=white&style=flat-square&labelColor=gray">
+  </a>
+  <a href="https://vuejs.org">
+    <img src="http://img.shields.io/badge/Nuxt.js-00C58E?logo=Nuxt.js&logoColor=white&style=flat-square&labelColor=gray">
+  </a>
+</p>
+
 > Github 저장소의 Label을 간단하게 다른 저장소로 복사할 수 있습니다.
 
 ## Build Setup
