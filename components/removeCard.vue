@@ -8,6 +8,11 @@
       </header>
       <div class="card-content">
         <div class="content">
+          <b-notification type="is-success" closable="false">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id
+            fermentum quam. Proin sagittis, nibh id hendrerit imperdiet, elit
+            sapien laoreet elit
+          </b-notification>
           <form @submit.prevent="execute">
             <b-field>
               <template slot="label">
@@ -66,9 +71,7 @@ export default {
     return {
       inputToken: '',
       inputSrc: '',
-      inputDest: '',
-      error: '',
-      success: false
+      inputDest: ''
     }
   },
   methods: {
@@ -85,11 +88,25 @@ export default {
       cglInstance.copy(this.inputSrc, this.inputDest, function(err, label) {
         // Handle errors
         if (err) {
-          this.error = err
+          this.$buefy.notification.open({
+            duration: 5000,
+            message: `실패하였습니다! 자세한 오류 내용은 개발자 도구 Console을 참고해주세요.`,
+            position: 'is-top-right',
+            type: 'is-danger',
+            hasIcon: true
+          })
+          // eslint-disable-next-line no-console
+          console.log(err)
         }
 
         // 성공
-        this.success = true
+        this.$buefy.notification.open({
+          duration: 5000,
+          message: `완료되었습니다.`,
+          position: 'is-top-right',
+          type: 'is-success',
+          hasIcon: true
+        })
       })
     }
   }
