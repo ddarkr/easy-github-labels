@@ -8,11 +8,6 @@
       </header>
       <div class="card-content">
         <div class="content">
-          <b-notification type="is-success" closable="false">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id
-            fermentum quam. Proin sagittis, nibh id hendrerit imperdiet, elit
-            sapien laoreet elit
-          </b-notification>
           <form @submit.prevent="execute">
             <b-field>
               <template slot="label">
