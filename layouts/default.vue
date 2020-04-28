@@ -6,9 +6,9 @@
       aria-label="main navigation"
     >
       <div class="navbar-brand">
-        <a class="navbar-item" href="/">
+        <NuxtLink class="navbar-item" to="/">
           Easy Github Labels
-        </a>
+        </NuxtLink>
 
         <div class="navbar-burger">
           <span />
@@ -23,6 +23,16 @@
         <nuxt />
       </div>
     </section>
+    <footer>
+      <p class="has-text-grey">
+        <a href="https://github.com/ddarkr/easy-github-labels">Github</a> /
+        Using
+        <a href="https://github.com/jvandemo/copy-github-labels"
+          >copy-github-labels</a
+        >
+        / Built with Nuxt.js and Buefy
+      </p>
+    </footer>
   </div>
 </template>
 
@@ -46,3 +56,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+footer {
+  text-align: center;
+  margin-top: 32px;
+}
+</style>
