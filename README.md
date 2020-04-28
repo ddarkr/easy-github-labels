@@ -18,3 +18,9 @@ $ yarn start
 # generate static project
 $ yarn generate
 ```
+
+## Others
+
+Cannot push directly to the prod branch. Please using PR and prod branch should succeed in the Vercel build.
+
+PR welcome, Contribution welcome.
