@@ -1,5 +1,5 @@
 <template>
-  <seciton>
+  <section>
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
@@ -8,6 +8,15 @@
       </header>
       <div class="card-content">
         <div class="content">
+          <div
+            v-if="success != true && error != ''"
+            class="notification is-danger"
+          >
+            {{ error }}
+          </div>
+          <div v-if="success" class="notification is-success">
+            작업이 완료되었습니다!
+          </div>
           <form @submit.prevent="execute">
             <b-field>
               <template slot="label">
@@ -50,12 +59,12 @@
               All API request is done at browser, and the token must have access
               to the repository.
             </p>
-            <b-button type="is-primary">Execute!</b-button>
+            <b-button type="is-primary" native-type="submit">Execute!</b-button>
           </form>
         </div>
       </div>
     </div>
-  </seciton>
+  </section>
 </template>
 
 <script>
@@ -66,7 +75,9 @@ export default {
     return {
       inputToken: '',
       inputSrc: '',
-      inputDest: ''
+      inputDest: '',
+      error: '',
+      success: false
     }
   },
   methods: {
@@ -78,30 +89,16 @@ export default {
       // 라이브러리 로딩
       const cglInstance = copyGithubLabels()
       cglInstance.authenticate({
+        type: 'token',
         token: this.inputToken
       })
-      cglInstance.copy(this.inputSrc, this.inputDest, function(err, label) {
+      cglInstance.copy(this.inputSrc, this.inputDest, (err, label) => {
         // Handle errors
         if (err) {
-          this.$buefy.notification.open({
-            duration: 5000,
-            message: `실패하였습니다! 자세한 오류 내용은 개발자 도구 Console을 참고해주세요.`,
-            position: 'is-top-right',
-            type: 'is-danger',
-            hasIcon: true
-          })
-          // eslint-disable-next-line no-console
-          console.log(err)
+          this.error = err
+        } else {
+          this.success = true
         }
-
-        // 성공
-        this.$buefy.notification.open({
-          duration: 5000,
-          message: `완료되었습니다.`,
-          position: 'is-top-right',
-          type: 'is-success',
-          hasIcon: true
-        })
       })
     }
   }

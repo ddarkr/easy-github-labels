@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <div>
     <h1 v-if="error.statusCode === 404">
       {{ pageNotFound }}
     </h1>
@@ -9,7 +9,7 @@
     <NuxtLink to="/">
       Home page
     </NuxtLink>
-  </v-app>
+  </div>
 </template>
 
 <script>
@@ -24,7 +24,8 @@ export default {
   data() {
     return {
       pageNotFound: '404 Not Found',
-      otherError: 'An error occurred'
+      otherError:
+        '오류가 발생하였습니다. 자세한 내용은 개발자 도구의 Console 을 참고하세요.'
     }
   },
   head() {
@@ -38,7 +39,7 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  font-size: 20px;
+div {
+  text-align: center;
 }
 </style>
